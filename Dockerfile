@@ -11,7 +11,6 @@ RUN apt-get update \
     cpanminus \
     curl \
     gcc \
-    libapache-dbi-perl \
     libapache-session-perl \
     libapache2-mod-fastcgi \
     libcgi-emulate-psgi-perl \
