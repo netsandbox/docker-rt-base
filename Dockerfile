@@ -11,7 +11,6 @@ RUN apt-get update \
     cpanminus \
     curl \
     gcc \
-    libapache-dbi-perl \
     libapache-session-perl \
     libapache2-mod-fastcgi \
     libcgi-emulate-psgi-perl \
@@ -81,7 +80,6 @@ RUN apt-get update \
     perl-doc \
     starlet \
     w3m \
-  && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 RUN cpanm \
@@ -93,8 +91,8 @@ RUN cpanm \
 
 # Manually set up the apache environment variables
 # TODO: why we need this here, it's already in /etc/apache2/envvars
-ENV APACHE_LOCK_DIR=/var/lock/apache2
-ENV APACHE_LOG_DIR=/var/log/apache2
-ENV APACHE_PID_FILE=/var/run/apache2/apache2.pid
-ENV APACHE_RUN_GROUP=www-data
-ENV APACHE_RUN_USER=www-data
+ENV APACHE_LOCK_DIR=/var/lock/apache2 \
+  APACHE_LOG_DIR=/var/log/apache2 \
+  APACHE_PID_FILE=/var/run/apache2/apache2.pid \
+  APACHE_RUN_GROUP=www-data \
+  APACHE_RUN_USER=www-data
