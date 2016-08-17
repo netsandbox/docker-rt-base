@@ -5,12 +5,12 @@ MAINTAINER Christian Loos <cloos@netsandbox.de>
 # we need non-free for libapache2-mod-fastcgi
 RUN sed -i "s/jessie main/jessie main contrib non-free/" /etc/apt/sources.list
 
-RUN apt-get update \
-  && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     apache2 \
     cpanminus \
     curl \
     gcc \
+    # RT core dependencies
     libapache-session-perl \
     libapache2-mod-fastcgi \
     libcgi-emulate-psgi-perl \
@@ -80,7 +80,29 @@ RUN apt-get update \
     perl-doc \
     starlet \
     w3m \
-  && rm -rf /var/lib/apt/lists/*
+    # RT developer dependencies
+    libemail-abstract-perl \
+    libfile-which-perl \
+    liblocale-po-perl \
+    liblog-dispatch-perl-perl \
+    libmojolicious-perl \
+    libperlio-eol-perl \
+    libplack-middleware-test-stashwarnings-perl \
+    libset-tiny-perl \
+    libstring-shellquote-perl \
+    libtest-deep-perl \
+    libtest-email-perl \
+    libtest-expect-perl \
+    libtest-longstring-perl \
+    libtest-mocktime-perl \
+    libtest-nowarnings-perl \
+    libtest-pod-perl \
+    libtest-warn-perl \
+    libtest-www-mechanize-perl \
+    libtest-www-mechanize-psgi-perl \
+    libwww-mechanize-perl \
+    libxml-simple-perl \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN cpanm \
   Business::Hours \
