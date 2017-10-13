@@ -107,6 +107,7 @@ RUN apt-get update && apt-get install -y \
 RUN cpanm \
   Business::Hours \
   Data::Page::Pageset \
+  Email::Address \
   Encode \
   HTML::FormatText::WithLinks::AndTables \
   Mozilla::CA
