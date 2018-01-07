@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     gcc \
     # RT core dependencies
-    libapache-session-perl \
     libapache2-mod-fastcgi \
+    libapache-session-perl \
     libc-dev \
     libcgi-emulate-psgi-perl \
     libcgi-psgi-perl \
@@ -68,13 +68,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libscope-upper-perl \
     libserver-starter-perl \
     libsymbol-global-name-perl \
-    libtime-modules-perl \
     libterm-readkey-perl  \
     libtext-password-pronounceable-perl \
     libtext-quoted-perl \
     libtext-template-perl \
     libtext-wikiformat-perl  \
     libtext-wrapper-perl \
+    libtime-modules-perl \
     libtree-simple-perl  \
     libuniversal-require-perl \
     libxml-rss-perl \
