@@ -5,7 +5,7 @@ LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 # we need non-free for libapache2-mod-fastcgi
 RUN sed -i "s/jessie main/jessie main contrib non-free/" /etc/apt/sources.list
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     apache2 \
     cpanminus \
     curl \
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     # RT core dependencies
     libapache-session-perl \
     libapache2-mod-fastcgi \
+    libc-dev \
     libcgi-emulate-psgi-perl \
     libcgi-psgi-perl \
     libconvert-color-perl \
@@ -32,6 +33,7 @@ RUN apt-get update && apt-get install -y \
     libemail-address-list-perl \
     libemail-address-perl \
     libencode-perl \
+    libfcgi-perl \
     libfcgi-procmanager-perl \
     libfile-sharedir-install-perl \
     libfile-sharedir-perl \
