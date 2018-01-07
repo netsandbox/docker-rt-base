@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-MAINTAINER Christian Loos <cloos@netsandbox.de>
+LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
 # we need non-free for libapache2-mod-fastcgi
 RUN sed -i "s/jessie main/jessie main contrib non-free/" /etc/apt/sources.list
