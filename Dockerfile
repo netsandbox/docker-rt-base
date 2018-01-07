@@ -110,7 +110,8 @@ RUN cpanm \
   Email::Address \
   Encode \
   HTML::FormatText::WithLinks::AndTables \
-  Mozilla::CA
+  Mozilla::CA \
+&& rm -rf /root/.cpanm
 
 # Manually set up the apache environment variables
 # TODO: why we need this here, it's already in /etc/apache2/envvars
