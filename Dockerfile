@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
