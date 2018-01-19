@@ -2,7 +2,7 @@ FROM debian:jessie-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apache2 \
     cpanminus \
     curl \
