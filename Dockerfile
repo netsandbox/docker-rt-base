@@ -111,11 +111,3 @@ RUN cpanm \
   HTML::FormatText::WithLinks::AndTables \
   Mozilla::CA \
 && rm -rf /root/.cpanm
-
-# Manually set up the apache environment variables
-# TODO: why we need this here, it's already in /etc/apache2/envvars
-ENV APACHE_LOCK_DIR=/var/lock/apache2 \
-  APACHE_LOG_DIR=/var/log/apache2 \
-  APACHE_PID_FILE=/var/run/apache2/apache2.pid \
-  APACHE_RUN_GROUP=www-data \
-  APACHE_RUN_USER=www-data
