@@ -2,16 +2,13 @@ FROM debian:jessie-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
-# we need non-free for libapache2-mod-fastcgi
-RUN sed -i "s/jessie main/jessie main contrib non-free/" /etc/apt/sources.list
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apache2 \
     cpanminus \
     curl \
     gcc \
     # RT core dependencies
-    libapache2-mod-fastcgi \
+    libapache2-mod-fcgid \
     libapache-session-perl \
     libc-dev \
     libcgi-emulate-psgi-perl \
