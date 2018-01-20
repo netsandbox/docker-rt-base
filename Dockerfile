@@ -1,18 +1,16 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 
-MAINTAINER Christian Loos <cloos@netsandbox.de>
+LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
-# we need non-free for libapache2-mod-fastcgi
-RUN sed -i "s/jessie main/jessie main contrib non-free/" /etc/apt/sources.list
-
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apache2 \
     cpanminus \
     curl \
     gcc \
     # RT core dependencies
+    libapache2-mod-fcgid \
     libapache-session-perl \
-    libapache2-mod-fastcgi \
+    libc-dev \
     libcgi-emulate-psgi-perl \
     libcgi-psgi-perl \
     libconvert-color-perl \
@@ -32,6 +30,7 @@ RUN apt-get update && apt-get install -y \
     libemail-address-list-perl \
     libemail-address-perl \
     libencode-perl \
+    libfcgi-perl \
     libfcgi-procmanager-perl \
     libfile-sharedir-install-perl \
     libfile-sharedir-perl \
@@ -66,13 +65,13 @@ RUN apt-get update && apt-get install -y \
     libscope-upper-perl \
     libserver-starter-perl \
     libsymbol-global-name-perl \
-    libtime-modules-perl \
     libterm-readkey-perl  \
     libtext-password-pronounceable-perl \
     libtext-quoted-perl \
     libtext-template-perl \
     libtext-wikiformat-perl  \
     libtext-wrapper-perl \
+    libtime-modules-perl \
     libtree-simple-perl  \
     libuniversal-require-perl \
     libxml-rss-perl \
@@ -110,12 +109,5 @@ RUN cpanm \
   Email::Address \
   Encode \
   HTML::FormatText::WithLinks::AndTables \
-  Mozilla::CA
-
-# Manually set up the apache environment variables
-# TODO: why we need this here, it's already in /etc/apache2/envvars
-ENV APACHE_LOCK_DIR=/var/lock/apache2 \
-  APACHE_LOG_DIR=/var/log/apache2 \
-  APACHE_PID_FILE=/var/run/apache2/apache2.pid \
-  APACHE_RUN_GROUP=www-data \
-  APACHE_RUN_USER=www-data
+  Mozilla::CA \
+&& rm -rf /root/.cpanm
