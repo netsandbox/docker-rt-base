@@ -105,10 +105,15 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 && rm -rf /var/lib/apt/lists/*
 
 RUN cpanm \
+  # RT dependencies
   Business::Hours \
   Data::Page::Pageset \
   Email::Address \
   Encode \
   HTML::FormatText::WithLinks::AndTables \
   Mozilla::CA \
+  # RT extension development dependencies
+  ExtUtils::MakeMaker \
+  Module::Install::RTx \
+  Module::Install::Substitute \
 && rm -rf /root/.cpanm
