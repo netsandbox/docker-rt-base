@@ -7,6 +7,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     cpanminus \
     curl \
     gcc \
+    vim \
     # RT core dependencies
     libapache2-mod-fcgid \
     libapache-session-perl \
