@@ -116,4 +116,5 @@ RUN cpanm \
   ExtUtils::MakeMaker \
   Module::Install::RTx \
   Module::Install::Substitute \
+  Module::Signature \
 && rm -rf /root/.cpanm
