@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM debian:stretch-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
@@ -7,10 +7,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     cpanminus \
     curl \
     gcc \
+    gnupg \
     vim \
     # RT core dependencies
     libapache2-mod-fcgid \
     libapache-session-perl \
+    libbusiness-hours-perl \
     libc-dev \
     libcgi-emulate-psgi-perl \
     libcgi-psgi-perl \
@@ -21,6 +23,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libcss-squish-perl \
     libdata-guid-perl \
     libdata-ical-perl \
+    libdata-page-pageset-perl \
     libdata-page-perl \
     libdate-extract-perl \
     libdate-manip-perl \
@@ -54,6 +57,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libmailtools-perl \
     libmime-tools-perl \
     libmime-types-perl \
+    libmodule-refresh-perl \
     libmodule-signature-perl \
     libmodule-versions-report-perl \
     libnet-cidr-perl \
@@ -106,15 +110,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 
 RUN cpanm \
   # RT dependencies
-  Business::Hours \
-  Data::Page::Pageset \
-  Email::Address \
-  Encode \
-  HTML::FormatText::WithLinks::AndTables \
   Mozilla::CA \
   # RT extension development dependencies
   ExtUtils::MakeMaker \
+  Module::Install \
   Module::Install::RTx \
   Module::Install::Substitute \
-  Module::Signature \
 && rm -rf /root/.cpanm
