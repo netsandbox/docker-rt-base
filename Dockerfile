@@ -118,6 +118,15 @@ RUN cpanm \
   Module::Install::Substitute \
 && rm -rf /root/.cpanm
 
+# logs should go to stdout / stderr
+ENV APACHE_CONFDIR /etc/apache2
+RUN set -eux; \
+  . $APACHE_CONFDIR/envvars; \
+  ln -sfT /dev/stderr "$APACHE_LOG_DIR/error.log"; \
+  ln -sfT /dev/stdout "$APACHE_LOG_DIR/access.log"; \
+  ln -sfT /dev/stdout "$APACHE_LOG_DIR/other_vhosts_access.log"; \
+  chown -R --no-dereference "$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$APACHE_LOG_DIR"
+
 COPY apache2-foreground /usr/local/bin/
 
 EXPOSE 80
