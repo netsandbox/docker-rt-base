@@ -117,3 +117,8 @@ RUN cpanm \
   Module::Install::RTx \
   Module::Install::Substitute \
 && rm -rf /root/.cpanm
+
+COPY apache2-foreground /usr/local/bin/
+
+EXPOSE 80
+CMD ["apache2-foreground"]
