@@ -110,10 +110,12 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 
 RUN cpanm \
   # RT dependencies
+  Module::Install \
+  Email::Address \
+  Email::Address::List \
   Mozilla::CA \
   # RT extension development dependencies
   ExtUtils::MakeMaker \
-  Module::Install \
   Module::Install::RTx \
   Module::Install::Substitute \
 && rm -rf /root/.cpanm
