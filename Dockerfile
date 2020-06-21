@@ -38,7 +38,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libencode-perl \
     libfcgi-perl \
     libfcgi-procmanager-perl \
-    libfile-sharedir-install-perl \
     libfile-sharedir-perl \
     libgd-graph-perl \
     libgraphviz-perl \
@@ -46,13 +45,11 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libhtml-formatexternal-perl \
     libhtml-formattext-withlinks-andtables-perl \
     libhtml-formattext-withlinks-perl \
-    libhtml-mason-perl  \
     libhtml-mason-psgihandler-perl \
     libhtml-quoted-perl \
     libhtml-rewriteattributes-perl \
     libhtml-scrubber-perl  \
     libipc-run3-perl \
-    libipc-signal-perl \
     libjavascript-minifier-xs-perl \
     libjson-perl \
     liblocale-maketext-fuzzy-perl \
@@ -77,7 +74,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libregexp-ipv6-perl \
     librole-basic-perl \
     libscope-upper-perl \
-    libserver-starter-perl \
     libsymbol-global-name-perl \
     libterm-readkey-perl  \
     libtext-password-pronounceable-perl \
@@ -100,7 +96,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     liblocale-po-perl \
     liblog-dispatch-perl-perl \
     libmojolicious-perl \
-    libperlio-eol-perl \
     libplack-middleware-test-stashwarnings-perl \
     libset-tiny-perl \
     libstring-shellquote-perl \
