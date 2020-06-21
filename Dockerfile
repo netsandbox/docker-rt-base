@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
@@ -41,10 +41,10 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libfile-sharedir-perl \
     libgd-graph-perl \
     libgraphviz-perl \
-    libgumbo-dev \
     libhtml-formatexternal-perl \
     libhtml-formattext-withlinks-andtables-perl \
     libhtml-formattext-withlinks-perl \
+    libhtml-gumbo-perl \
     libhtml-mason-psgihandler-perl \
     libhtml-quoted-perl \
     libhtml-rewriteattributes-perl \
@@ -67,7 +67,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libmoosex-role-parameterized-perl \
     libnet-cidr-perl \
     libnet-ip-perl \
-    libpath-dispatcher-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
@@ -81,7 +80,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libtext-template-perl \
     libtext-wikiformat-perl  \
     libtext-wrapper-perl \
-    libtime-modules-perl \
+    libtime-parsedate-perl \
     libtree-simple-perl  \
     libuniversal-require-perl \
     libweb-machine-perl \
@@ -95,6 +94,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libfile-which-perl \
     liblocale-po-perl \
     liblog-dispatch-perl-perl \
+    libmodule-install-perl \
     libmojolicious-perl \
     libplack-middleware-test-stashwarnings-perl \
     libset-tiny-perl \
@@ -115,22 +115,19 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 
 RUN cpanm \
   # RT dependencies
-  Module::Install \
-  Email::Address \
-  Email::Address::List \
-  HTML::Gumbo \
   Mozilla::CA \
   Path::Dispatcher \
   # RT extension development dependencies
-  ExtUtils::MakeMaker \
   Module::Install::RTx \
   Module::Install::Substitute \
 && rm -rf /root/.cpanm
 
-# logs should go to stdout / stderr
 ENV APACHE_CONFDIR /etc/apache2
 RUN set -eux; \
   . $APACHE_CONFDIR/envvars; \
+  # create missing directory
+  mkdir "$APACHE_RUN_DIR"; \
+  # logs should go to stdout / stderr
   ln -sfT /dev/stderr "$APACHE_LOG_DIR/error.log"; \
   ln -sfT /dev/stdout "$APACHE_LOG_DIR/access.log"; \
   ln -sfT /dev/stdout "$APACHE_LOG_DIR/other_vhosts_access.log"; \
