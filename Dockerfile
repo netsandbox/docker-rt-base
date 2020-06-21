@@ -10,8 +10,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     gnupg \
     vim \
     # RT core dependencies
-    libapache2-mod-fcgid \
     libapache-session-perl \
+    libapache2-mod-fcgid \
     libbusiness-hours-perl \
     libc-dev \
     libcgi-emulate-psgi-perl \
@@ -33,6 +33,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libdevel-globaldestruction-perl \
     libemail-address-list-perl \
     libemail-address-perl \
+    libencode-detect-perl \
+    libencode-hanextra-perl \
     libencode-perl \
     libfcgi-perl \
     libfcgi-procmanager-perl \
@@ -40,6 +42,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libfile-sharedir-perl \
     libgd-graph-perl \
     libgraphviz-perl \
+    libgumbo-dev \
+    libhtml-formatexternal-perl \
     libhtml-formattext-withlinks-andtables-perl \
     libhtml-formattext-withlinks-perl \
     libhtml-mason-perl  \
@@ -57,11 +61,16 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libmailtools-perl \
     libmime-tools-perl \
     libmime-types-perl \
+    libmodule-path-perl \
     libmodule-refresh-perl \
     libmodule-signature-perl \
     libmodule-versions-report-perl \
+    libmoose-perl \
+    libmoosex-nonmoose-perl \
+    libmoosex-role-parameterized-perl \
     libnet-cidr-perl \
     libnet-ip-perl \
+    libpath-dispatcher-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
@@ -79,6 +88,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libtime-modules-perl \
     libtree-simple-perl  \
     libuniversal-require-perl \
+    libweb-machine-perl \
     libxml-rss-perl \
     make \
     perl-doc \
@@ -113,7 +123,9 @@ RUN cpanm \
   Module::Install \
   Email::Address \
   Email::Address::List \
+  HTML::Gumbo \
   Mozilla::CA \
+  Path::Dispatcher \
   # RT extension development dependencies
   ExtUtils::MakeMaker \
   Module::Install::RTx \
