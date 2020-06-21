@@ -48,7 +48,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libhtml-mason-psgihandler-perl \
     libhtml-quoted-perl \
     libhtml-rewriteattributes-perl \
-    libhtml-scrubber-perl  \
+    libhtml-scrubber-perl \
     libipc-run3-perl \
     libjavascript-minifier-xs-perl \
     libjson-perl \
@@ -74,14 +74,14 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     librole-basic-perl \
     libscope-upper-perl \
     libsymbol-global-name-perl \
-    libterm-readkey-perl  \
+    libterm-readkey-perl \
     libtext-password-pronounceable-perl \
     libtext-quoted-perl \
     libtext-template-perl \
-    libtext-wikiformat-perl  \
+    libtext-wikiformat-perl \
     libtext-wrapper-perl \
     libtime-parsedate-perl \
-    libtree-simple-perl  \
+    libtree-simple-perl \
     libuniversal-require-perl \
     libweb-machine-perl \
     libxml-rss-perl \
