@@ -132,7 +132,9 @@ RUN set -eux; \
   ln -sfT /dev/stderr "$APACHE_LOG_DIR/error.log"; \
   ln -sfT /dev/stdout "$APACHE_LOG_DIR/access.log"; \
   ln -sfT /dev/stdout "$APACHE_LOG_DIR/other_vhosts_access.log"; \
-  chown -R --no-dereference "$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$APACHE_LOG_DIR"
+  chown -R --no-dereference "$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$APACHE_LOG_DIR"; \
+  # make sure we run with recommended MPM prefork
+  a2dismod mpm_event && a2enmod mpm_prefork
 
 COPY apache2-foreground /usr/local/bin/
 
