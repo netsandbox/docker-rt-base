@@ -115,6 +115,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
 
 RUN cpanm \
   # RT dependencies
+  DBIx::SearchBuilder \
   Mozilla::CA \
   Path::Dispatcher \
   # RT extension development dependencies
