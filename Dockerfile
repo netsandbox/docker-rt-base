@@ -67,6 +67,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libmoosex-role-parameterized-perl \
     libnet-cidr-perl \
     libnet-ip-perl \
+    libnet-ldap-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
