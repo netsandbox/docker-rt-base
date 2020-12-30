@@ -2,6 +2,7 @@ FROM debian:buster-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 
+# hadolint ignore=DL3008
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     apache2 \
     cpanminus \

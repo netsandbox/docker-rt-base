@@ -2,6 +2,7 @@
 
 set -e
 
+# shellcheck disable=SC1091
 . /etc/apache2/envvars
 
 exec apache2 -DFOREGROUND
