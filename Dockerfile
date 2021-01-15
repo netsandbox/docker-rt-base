@@ -68,6 +68,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libmoosex-role-parameterized-perl \
     libnet-cidr-perl \
     libnet-ip-perl \
+    libnet-ldap-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
@@ -97,6 +98,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     liblog-dispatch-perl-perl \
     libmodule-install-perl \
     libmojolicious-perl \
+    libnet-ldap-server-test-perl \
     libplack-middleware-test-stashwarnings-perl \
     libset-tiny-perl \
     libstring-shellquote-perl \
