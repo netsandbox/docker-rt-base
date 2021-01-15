@@ -5,4 +5,4 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/netsandbox/request-tracker-base.svg)](https://hub.docker.com/r/netsandbox/request-tracker-base/)
 [![Image Size and Layers](https://images.microbadger.com/badges/image/netsandbox/request-tracker-base.svg)](https://microbadger.com/images/netsandbox/request-tracker-base "Get your own image badge on microbadger.com")
 
-This image contains the [Debian](https://www.debian.org/) packages necessary for a [Request Tracker (RT)](https://www.bestpractical.com/rt/) installation.
+This image contains the [Debian](https://www.debian.org/) packages necessary for a [Request Tracker (RT)](https://bestpractical.com/request-tracker) installation.
