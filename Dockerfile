@@ -1,6 +1,7 @@
 FROM debian:buster-slim
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
+LABEL org.opencontainers.image.source="https://github.com/netsandbox/docker-rt-base"
 
 # hadolint ignore=DL3008
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
