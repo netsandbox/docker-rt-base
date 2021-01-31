@@ -1,4 +1,6 @@
-FROM debian:buster-slim
+ARG IMAGE=debian
+ARG TAG=buster-slim
+FROM ${IMAGE}:${TAG}
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 LABEL org.opencontainers.image.source="https://github.com/netsandbox/docker-rt-base"
