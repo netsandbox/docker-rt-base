@@ -84,6 +84,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libtext-quoted-perl \
     libtext-template-perl \
     libtext-wikiformat-perl \
+    libtext-worddiff-perl \
     libtext-wrapper-perl \
     libtime-parsedate-perl \
     libtree-simple-perl \
