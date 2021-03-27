@@ -5,6 +5,12 @@
 
 This image uses [Debian](https://www.debian.org/) as a base image and adds packages and Perl modules necessary for a [Request Tracker (RT)](https://bestpractical.com/request-tracker) installation.
 
+## How to build the image?
+
+```shell
+docker build --no-cache --pull --tag request-tracker-base .
+```
+
 ## Where is this image available?
 
 ### Docker Hub
@@ -13,7 +19,7 @@ This image uses [Debian](https://www.debian.org/) as a base image and adds packa
 [![Docker Pulls](https://img.shields.io/docker/pulls/netsandbox/request-tracker-base.svg)](https://hub.docker.com/r/netsandbox/request-tracker-base/)
 [![Image Size and Layers](https://images.microbadger.com/badges/image/netsandbox/request-tracker-base.svg)](https://microbadger.com/images/netsandbox/request-tracker-base "Get your own image badge on microbadger.com")
 
-<https://hub.docker.com/r/netsandbox/request-tracker-base/>
+<https://hub.docker.com/r/netsandbox/request-tracker-base>
 
 ### GitHub Container Registry
 
