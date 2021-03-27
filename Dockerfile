@@ -5,8 +5,10 @@ FROM ${IMAGE}:${TAG}
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
 LABEL org.opencontainers.image.source="https://github.com/netsandbox/docker-rt-base"
 
-# hadolint ignore=DL3008
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+ENV DEBIAN_FRONTEND noninteractive
+
+# hadolint ignore=DL3005,DL3008
+RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-recommends \
     apache2 \
     cpanminus \
     curl \
