@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.source="https://github.com/netsandbox/docker-rt-b
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# hadolint ignore=DL3005,DL3008
+# hadolint ignore=DL3008
 RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-recommends \
     apache2 \
     cpanminus \
@@ -120,17 +120,16 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libtest-www-mechanize-psgi-perl \
     libwww-mechanize-perl \
     libxml-simple-perl \
-&& rm -rf /var/lib/apt/lists/*
-
-RUN cpanm \
-  # RT dependencies
-  DBIx::SearchBuilder \
-  Mozilla::CA \
-  Path::Dispatcher \
-  # RT extension development dependencies
-  Module::Install::RTx \
-  Module::Install::Substitute \
-&& rm -rf /root/.cpanm
+  && rm -rf /var/lib/apt/lists/* \
+  && cpanm \
+    # RT dependencies
+    DBIx::SearchBuilder \
+    Mozilla::CA \
+    Path::Dispatcher \
+    # RT extension development dependencies
+    Module::Install::RTx \
+    Module::Install::Substitute \
+  && rm -rf /root/.cpanm
 
 ENV APACHE_CONFDIR /etc/apache2
 RUN set -eux; \
