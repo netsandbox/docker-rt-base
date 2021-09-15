@@ -15,9 +15,9 @@ docker build --no-cache --pull --tag request-tracker-base .
 
 ### Docker Hub
 
-[![Docker Stars](https://img.shields.io/docker/stars/netsandbox/request-tracker-base.svg)](https://hub.docker.com/r/netsandbox/request-tracker-base/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/netsandbox/request-tracker-base.svg)](https://hub.docker.com/r/netsandbox/request-tracker-base/)
-[![Image Size and Layers](https://images.microbadger.com/badges/image/netsandbox/request-tracker-base.svg)](https://microbadger.com/images/netsandbox/request-tracker-base "Get your own image badge on microbadger.com")
+![Docker Stars](https://img.shields.io/docker/stars/netsandbox/request-tracker-base.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/netsandbox/request-tracker-base.svg)
+![Docker Image Size](https://img.shields.io/docker/image-size/netsandbox/request-tracker-base.svg)
 
 <https://hub.docker.com/r/netsandbox/request-tracker-base>
 
