@@ -70,6 +70,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libnet-cidr-perl \
     libnet-ip-perl \
     libnet-ldap-perl \
+    libparallel-forkmanager-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
