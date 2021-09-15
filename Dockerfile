@@ -1,5 +1,5 @@
 ARG IMAGE=debian
-ARG TAG=buster-slim
+ARG TAG=bullseye-slim
 FROM ${IMAGE}:${TAG}
 
 LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
@@ -71,6 +71,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libnet-ip-perl \
     libnet-ldap-perl \
     libparallel-forkmanager-perl \
+    libpath-dispatcher-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
@@ -120,9 +121,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
   && rm -rf /var/lib/apt/lists/* \
   && cpanm \
     # RT dependencies
-    DBIx::SearchBuilder \
     Mozilla::CA \
-    Path::Dispatcher \
+    Pod::Select \
     # RT extension development dependencies
     Module::Install::RTx \
     Module::Install::Substitute \
