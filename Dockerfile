@@ -9,7 +9,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-recommends \
-    apache2 \
     cpanminus \
     curl \
     gcc \
@@ -17,7 +16,6 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     vim \
     # RT core dependencies
     libapache-session-perl \
-    libapache2-mod-fcgid \
     libbusiness-hours-perl \
     libc-dev \
     libcgi-emulate-psgi-perl \
@@ -42,8 +40,6 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libencode-detect-perl \
     libencode-hanextra-perl \
     libencode-perl \
-    libfcgi-perl \
-    libfcgi-procmanager-perl \
     libfile-sharedir-perl \
     libgd-graph-perl \
     libgraphviz-perl \
@@ -130,21 +126,3 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     Module::Install::RTx \
     Module::Install::Substitute \
   && rm -rf /root/.cpanm
-
-ENV APACHE_CONFDIR /etc/apache2
-RUN set -eux; \
-  . $APACHE_CONFDIR/envvars; \
-  # create missing directory
-  mkdir "$APACHE_RUN_DIR"; \
-  # logs should go to stdout / stderr
-  ln -sfT /dev/stderr "$APACHE_LOG_DIR/error.log"; \
-  ln -sfT /dev/stdout "$APACHE_LOG_DIR/access.log"; \
-  ln -sfT /dev/stdout "$APACHE_LOG_DIR/other_vhosts_access.log"; \
-  chown -R --no-dereference "$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$APACHE_LOG_DIR"; \
-  # make sure we run with recommended MPM prefork
-  a2dismod mpm_event && a2enmod mpm_prefork
-
-COPY apache2-foreground /usr/local/bin/
-
-EXPOSE 80
-CMD ["apache2-foreground"]
