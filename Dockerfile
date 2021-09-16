@@ -23,6 +23,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libconvert-color-perl \
     libcrypt-eksblowfish-perl \
     libcrypt-ssleay-perl \
+    libcrypt-x509-perl \
     libcss-minifier-xs-perl \
     libcss-squish-perl \
     libdata-guid-perl \
@@ -42,6 +43,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libencode-perl \
     libfile-sharedir-perl \
     libgd-graph-perl \
+    libgnupg-interface-perl \
     libgraphviz-perl \
     libhtml-formatexternal-perl \
     libhtml-formattext-withlinks-andtables-perl \
@@ -72,6 +74,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libnet-ldap-perl \
     libparallel-forkmanager-perl \
     libpath-dispatcher-perl \
+    libperlio-eol-perl \
     libplack-perl \
     libregexp-common-net-cidr-perl \
     libregexp-common-perl \
@@ -121,6 +124,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
   && rm -rf /var/lib/apt/lists/* \
   && cpanm \
     # RT dependencies
+    GnuPG::Interface \
     Mozilla::CA \
     Pod::Select \
     # RT extension development dependencies
