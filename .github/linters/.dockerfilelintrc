@@ -1,3 +1,0 @@
----
-rules:
-  apt-get-upgrade: off
