@@ -1,6 +1,6 @@
 # Docker base image for RT installation
 
-[![Super-Linter](https://github.com/cloos/docker-rt-base/workflows/Super-Linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/netsandbox/docker-rt-base/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Build and Push Docker Image](https://github.com/netsandbox/docker-rt-base/actions/workflows/build.yml/badge.svg)](https://github.com/netsandbox/docker-rt-base/actions/workflows/build.yml)
 
 This image uses [Debian](https://www.debian.org/) as a base image and adds packages and Perl modules necessary for a [Request Tracker (RT)](https://bestpractical.com/request-tracker) installation.
