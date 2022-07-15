@@ -122,6 +122,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
   && rm -rf /var/lib/apt/lists/* \
   && cpanm \
     # RT dependencies
+    DBIx::SearchBuilder \
     GnuPG::Interface \
     Mozilla::CA \
     Pod::Select \
