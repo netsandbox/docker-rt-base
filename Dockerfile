@@ -2,8 +2,7 @@ ARG IMAGE=debian
 ARG TAG=bullseye-slim
 FROM ${IMAGE}:${TAG}
 
-LABEL maintainer="Christian Loos <cloos@netsandbox.de>"
-LABEL org.opencontainers.image.source="https://github.com/netsandbox/docker-rt-base"
+LABEL org.opencontainers.image.authors="Christian Loos <cloos@netsandbox.de>"
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-recommends \
