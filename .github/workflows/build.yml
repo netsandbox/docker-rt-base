@@ -52,6 +52,7 @@ jobs:
             type=sha,format=long
 
       - name: Build and push Docker image
+        id: build-and-push
         uses: docker/build-push-action@v3
         with:
           no-cache: true
@@ -64,7 +65,6 @@ jobs:
         uses: sigstore/cosign-installer@v2
 
       - name: Sign the published Docker image
-        run: cosign sign "${TAGS}"
+        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
         env:
-          TAGS: ${{ steps.meta.outputs.tags }}
           COSIGN_EXPERIMENTAL: true
