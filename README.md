@@ -21,6 +21,20 @@ docker build --no-cache --pull --tag request-tracker-base .
 
 <https://hub.docker.com/r/netsandbox/request-tracker-base>
 
+The image is signed with [cosign](https://github.com/sigstore/cosign).
+To verrify the signature run:
+
+```shell
+COSIGN_EXPERIMENTAL=1 cosign verify netsandbox/request-tracker-base:latest
+```
+
 ### GitHub Container Registry
 
 <https://github.com/users/netsandbox/packages/container/package/request-tracker-base>
+
+The image is signed with [cosign](https://github.com/sigstore/cosign).
+To verrify the signature run:
+
+```shell
+COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/netsandbox/request-tracker-base:latest
+```
