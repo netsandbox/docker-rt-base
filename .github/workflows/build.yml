@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      packages: write
       contents: read
+      id-token: write
+      packages: write
 
     steps:
       - name: Checkout repository
@@ -56,11 +57,11 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Install Cosign
+      - name: Install cosign
         uses: sigstore/cosign-installer@v2
 
-      - name: Sign the images
-        run: cosign sign ${TAGS}
+      - name: Sign the published Docker image
+        run: cosign sign "${TAGS}"
         env:
           TAGS: ${{ steps.meta.outputs.tags }}
           COSIGN_EXPERIMENTAL: true
