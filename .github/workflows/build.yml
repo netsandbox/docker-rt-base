@@ -8,14 +8,18 @@ on:
   schedule:
     - cron: '33 3 * * 0'
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  id-token: write
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      id-token: write
-      packages: write
 
     steps:
       - name: Checkout repository
