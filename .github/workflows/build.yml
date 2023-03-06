@@ -69,9 +69,7 @@ jobs:
         uses: sigstore/cosign-installer@v3
 
       - name: Sign the published Docker image
-        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
-        env:
-          COSIGN_EXPERIMENTAL: true
+        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign --yes {}@${{ steps.build-and-push.outputs.digest }}
 
       - name: Update Docker Hub description
         uses: peter-evans/dockerhub-description@v3

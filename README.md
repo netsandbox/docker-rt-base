@@ -25,7 +25,10 @@ The image is signed with [cosign](https://github.com/sigstore/cosign).
 To verrify the signature run:
 
 ```shell
-COSIGN_EXPERIMENTAL=1 cosign verify netsandbox/request-tracker-base:latest
+cosign verify \
+  --certificate-identity-regexp https://github.com/netsandbox/docker-rt-base/ \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+  netsandbox/request-tracker-base:latest
 ```
 
 ### GitHub Container Registry
@@ -36,5 +39,8 @@ The image is signed with [cosign](https://github.com/sigstore/cosign).
 To verrify the signature run:
 
 ```shell
-COSIGN_EXPERIMENTAL=1 cosign verify ghcr.io/netsandbox/request-tracker-base:latest
+cosign verify \
+  --certificate-identity-regexp https://github.com/netsandbox/docker-rt-base/ \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+  ghcr.io/netsandbox/request-tracker-base:latest
 ```
