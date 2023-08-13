@@ -1,5 +1,5 @@
 ARG IMAGE=debian
-ARG TAG=bullseye-slim
+ARG TAG=bookworm-slim
 FROM ${IMAGE}:${TAG}
 
 LABEL org.opencontainers.image.authors="Christian Loos <cloos@netsandbox.de>"
@@ -110,6 +110,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libtest-email-perl \
     libtest-expect-perl \
     libtest-longstring-perl \
+    libtest-mocktime-hires-perl \
     libtest-mocktime-perl \
     libtest-nowarnings-perl \
     libtest-pod-perl \
@@ -121,16 +122,11 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
   && rm -rf /var/lib/apt/lists/* \
   && cpanm \
     # RT dependencies
-    Date::Extract \
-    DBD::SQLite \
-    DBIx::SearchBuilder \
     GD::Graph \
-    GnuPG::Interface \
     GraphViz2 \
     Mozilla::CA \
     Pod::Select \
     # RT extension development dependencies
     Module::Install::RTx \
     Module::Install::Substitute \
-    Test::MockTime::HiRes \
   && rm -rf /root/.cpanm
