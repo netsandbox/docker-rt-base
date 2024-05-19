@@ -127,6 +127,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     GraphViz2 \
     Mozilla::CA \
     Pod::Select \
+    # RT dev dependencies
+    Markdown::Render \
     # RT extension development dependencies
     Module::Install::RTx \
     Module::Install::Substitute \
