@@ -8,6 +8,7 @@ LABEL org.opencontainers.image.authors="Christian Loos <cloos@netsandbox.de>"
 
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-recommends \
+    autoconf \
     cpanminus \
     curl \
     gcc \
