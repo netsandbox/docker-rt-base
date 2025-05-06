@@ -128,6 +128,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     DBIx::SearchBuilder \
     GD::Graph \
     GraphViz2 \
+    HTML::RewriteAttributes \
     Mozilla::CA \
     Pod::Select \
     # RT dev dependencies
