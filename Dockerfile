@@ -45,6 +45,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libgd-graph-perl \
     libgnupg-interface-perl \
     libgraphviz-perl \
+    libhash-merge-perl \
     libhtml-formatexternal-perl \
     libhtml-formattext-withlinks-andtables-perl \
     libhtml-formattext-withlinks-perl \
@@ -53,6 +54,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libhtml-quoted-perl \
     libhtml-rewriteattributes-perl \
     libhtml-scrubber-perl \
+    libimager-perl \
     libipc-run3-perl \
     libjavascript-minifier-xs-perl \
     libjson-perl \
@@ -101,6 +103,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     # RT developer dependencies
     libemail-abstract-perl \
     libfile-which-perl \
+    libhtml-selector-xpath-perl \
     liblocale-po-perl \
     liblog-dispatch-perl-perl \
     libmodule-install-perl \
@@ -125,14 +128,17 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
   && rm -rf /var/lib/apt/lists/* \
   && cpanm \
     # RT dependencies
+    CSS::Inliner \
     DBIx::SearchBuilder \
     GD::Graph \
     GraphViz2 \
+    Hash::Merge::Extra \
     HTML::RewriteAttributes \
     Mozilla::CA \
     Pod::Select \
     # RT dev dependencies
     Markdown::Render \
+    Test::Selenium::Remote::Driver \
     # RT extension development dependencies
     Module::Install::RTx \
     Module::Install::Substitute \
