@@ -33,6 +33,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libdate-extract-perl \
     libdate-manip-perl \
     libdatetime-format-natural-perl \
+    libdatetime-set-perl \
     libdbd-sqlite3-perl \
     libdbix-searchbuilder-perl \
     libdevel-globaldestruction-perl \
