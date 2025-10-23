@@ -126,8 +126,9 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libtest-www-mechanize-psgi-perl \
     libwww-mechanize-perl \
     libxml-simple-perl \
-  && rm -rf /var/lib/apt/lists/* \
-  && cpanm \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN cpanm \
     # RT dependencies
     CSS::Inliner \
     DBIx::SearchBuilder \
