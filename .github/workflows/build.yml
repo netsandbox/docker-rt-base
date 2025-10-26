@@ -60,8 +60,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           no-cache: true
-          # platforms: linux/amd64,linux/arm64,linux/arm/v7
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           pull: true
           push: true
           tags: ${{ steps.meta.outputs.tags }}

@@ -135,13 +135,15 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
 
 RUN cpanm \
     # RT dependencies
-    CSS::Inliner \
+    #CSS::Inliner \
     Pod::Select \
     # RT dev dependencies
     Test::Selenium::Remote::Driver \
     # RT extension development dependencies
     Module::Install::RTx \
     Module::Install::Substitute \
-  ; echo '***** cpanm build log *****' \
-  ; cat /root/.cpanm/work/*/build.log \
+  && rm -rf /root/.cpanm
+
+# workaround for https://github.com/netsandbox/docker-rt-base/issues/29
+RUN cpanm --force CSS::Inliner \
   && rm -rf /root/.cpanm
