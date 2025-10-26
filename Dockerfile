@@ -135,13 +135,13 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
 
 RUN cpanm \
     # RT dependencies
-    CSS::Inliner \
+    CSS::InlinerX \
     Pod::Select \
     # RT dev dependencies
     Test::Selenium::Remote::Driver \
     # RT extension development dependencies
     Module::Install::RTx \
     Module::Install::Substitute \
-  && echo '*** cpanm build log ***' \
-  && cat /root/.cpanm/work/*/build.log \
+  ; echo '***** cpanm build log *****' \
+  ; cat /root/.cpanm/work/*/build.log \
   && rm -rf /root/.cpanm
