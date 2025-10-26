@@ -75,7 +75,7 @@ jobs:
       - name: Update Docker Hub description
         uses: peter-evans/dockerhub-description@v5
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: netsandbox/request-tracker-base
           short-description: ${{ github.event.repository.description }}
