@@ -85,3 +85,10 @@ jobs:
           package-name: request-tracker-base
           package-type: container
           min-versions-to-keep: 10
+
+      - name: Archive cpanm build log
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ccpanm-build-log
+          path: /root/.cpanm/work/*/build.log
