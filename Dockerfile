@@ -1,7 +1,7 @@
 #checkov:skip=CKV_DOCKER_2:Ensure that HEALTHCHECK instructions have been added to container images
 #checkov:skip=CKV_DOCKER_3:Ensure that a user for the container has been created
 ARG IMAGE=debian
-ARG TAG=bookworm-slim
+ARG TAG=trixie-slim
 FROM ${IMAGE}:${TAG}
 
 LABEL org.opencontainers.image.authors="Christian Loos <cloos@netsandbox.de>"
@@ -24,6 +24,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libcrypt-eksblowfish-perl \
     libcrypt-ssleay-perl \
     libcrypt-x509-perl \
+    libcss-inliner-perl \
     libcss-minifier-xs-perl \
     libcss-squish-perl \
     libdata-guid-perl \
@@ -45,7 +46,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libfile-sharedir-perl \
     libgd-graph-perl \
     libgnupg-interface-perl \
-    libgraphviz-perl \
+    libgraphviz2-perl \
+    libhash-merge-extra-perl \
     libhash-merge-perl \
     libhtml-formatexternal-perl \
     libhtml-formattext-withlinks-andtables-perl \
@@ -55,6 +57,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libhtml-quoted-perl \
     libhtml-rewriteattributes-perl \
     libhtml-scrubber-perl \
+    libhttp-message-perl \
     libimager-perl \
     libipc-run3-perl \
     libjavascript-minifier-xs-perl \
@@ -72,6 +75,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libmoose-perl \
     libmoosex-nonmoose-perl \
     libmoosex-role-parameterized-perl \
+    libmozilla-ca-perl \
     libnet-cidr-perl \
     libnet-ip-perl \
     libnet-ldap-perl \
@@ -107,6 +111,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     libhtml-selector-xpath-perl \
     liblocale-po-perl \
     liblog-dispatch-perl-perl \
+    libmarkdown-render-perl \
     libmodule-install-perl \
     libmojolicious-perl \
     libnet-ldap-server-test-perl \
@@ -131,16 +136,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
 RUN cpanm \
     # RT dependencies
     CSS::Inliner \
-    DBIx::SearchBuilder \
-    GD::Graph \
-    GraphViz2 \
-    Hash::Merge::Extra \
-    HTML::RewriteAttributes \
-    HTTP::Message \
-    Mozilla::CA \
     Pod::Select \
     # RT dev dependencies
-    Markdown::Render \
     Test::Selenium::Remote::Driver \
     # RT extension development dependencies
     Module::Install::RTx \
