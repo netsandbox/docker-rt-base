@@ -135,7 +135,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
 
 RUN cpanm \
     # RT dependencies
-    CSS::InlinerX \
+    CSS::Inliner \
     Pod::Select \
     # RT dev dependencies
     Test::Selenium::Remote::Driver \
