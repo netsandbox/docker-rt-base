@@ -136,7 +136,9 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
 RUN cpanm \
     # RT dependencies
     #CSS::Inliner \
+    DBIx::SearchBuilder \
     Pod::Select \
+    Time::ParseDate \
     # RT dev dependencies
     Test::Selenium::Remote::Driver \
     # RT extension development dependencies
