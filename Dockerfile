@@ -11,7 +11,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
     autoconf \
     cpanminus \
     curl \
-    gcc \
+    g++ \
     gnupg \
     vim \
     # RT core dependencies
@@ -135,9 +135,14 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install --no-install-reco
 
 RUN cpanm \
     # RT dependencies
+    Crypt::URandom \
     #CSS::Inliner \
     DBIx::SearchBuilder \
+    HTML::Gumbo \
+    MIME::Tools \
+    Mozilla::CA \
     Pod::Select \
+    Starlet \
     Time::ParseDate \
     # RT dev dependencies
     Test::Selenium::Remote::Driver \
